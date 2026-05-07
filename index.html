@@ -63,17 +63,25 @@
     }
 
     /* --- PHONE-STYLE CENTERING --- */
-    main {
-        display: block !important;
-        max-width: 800px !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-        padding: 120px 20px 80px 20px !important;
-        background-color: var(--bg);
-        position: relative;
-    }
+    /* THIS FORCES THE MIDDLE COLUMN */
+main, .content-wrap {
+    display: block !important;
+    max-width: 800px !important; 
+    width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 120px 0 80px 0 !important;
+    background-color: transparent !important;
+    position: relative !important;
+}
 
-    /* --- RAINBOW FIRST LETTERS --- */
+/* FORCES ALL SECTIONS INSIDE TO STAY IN THE MIDDLE */
+section, .chapter {
+    width: 100% !important;
+    max-width: 800px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
     .first-letter {
         float: left;
         font-size: 5rem;
