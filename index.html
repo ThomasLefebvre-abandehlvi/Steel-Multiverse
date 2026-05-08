@@ -8,13 +8,13 @@
     :root {
         --bg: #050505;
         --nav-bg: #111111;
-        --accent: #ffd700; /* Gold Accent */
+        --accent: #ffd700; /* Pure Gold Accent */
         --gold: #ffd700;
         --text: #b0b0b0;
         --white: #ffffff;
     }
 
-    /* --- UNIVERSAL RESET & CORE LAYOUT --- */
+    /* --- 1. CORE RESET (UNIVERSAL) --- */
     html, body {
         background-color: var(--bg) !important;
         color: var(--text) !important;
@@ -24,7 +24,7 @@
         overflow-x: hidden;
     }
 
-    /* --- GOLD STICKY TOP NAV BAR --- */
+    /* --- 2. STICKY TOP NAV BAR (UNIVERSAL) --- */
     .top-nav {
         position: fixed !important;
         top: 0; left: 0;
@@ -34,7 +34,7 @@
         display: flex !important;
         align-items: center; justify-content: space-between;
         padding: 0 20px; z-index: 99999 !important;
-        box-sizing: border-box;
+        box-sizing: border-box !important;
     }
 
     #currentLabel {
@@ -55,29 +55,29 @@
     }
     .btn:hover { background: var(--accent); color: #000; }
 
-    /* --- UNIVERSAL PIXEL-PERFECT CENTERING --- */
+    /* --- 3. DEAD-CENTERING MAIN CONTAINER (UNIVERSAL) --- */
     main {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important; /* Forces perfect middle alignment */
-    width: 100% !important;
-    padding: 120px 20px 100px 20px !important;
-    background-color: var(--bg);
-    position: relative;
-    box-sizing: border-box !important;
-}
+        display: block !important;
+        max-width: 800px !important; /* Limits text width */
+        width: 100% !important;
+        margin-left: auto !important; /* Forces center */
+        margin-right: auto !important; /* Forces center */
+        padding: 120px 20px 100px 20px !important; /* Fixed top/bottom gaps */
+        background-color: var(--bg);
+        position: relative;
+        box-sizing: border-box !important;
+    }
 
-/* FORCES THE INNER CONTENT TO STAY IN THE 800PX BOX */
-section, .content-wrap, .chapter {
-    display: block !important;
-    width: 100% !important;
-    max-width: 800px !important; /* This strictly limits the text width */
-    margin-left: auto !important;
-    margin-right: auto !important;
-    box-sizing: border-box !important;
-}
+    /* --- 4. PREVENTING INNER DIVS FROM PUSHING WIDE --- */
+    section, .content-wrap, .chapter {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
+    }
 
-    /* --- THE TEXT ELEMENTS --- */
+    /* --- 5. TEXT ELEMENTS (UNIVERSAL) --- */
     .unit-label { 
         color: var(--accent); text-transform: uppercase; 
         letter-spacing: 5px; font-size: 0.8rem; font-weight: bold; 
@@ -92,14 +92,15 @@ section, .content-wrap, .chapter {
     }
     p { font-size: 1.3rem; margin-bottom: 35px; }
     
+    /* --- 6. FIRST LETTER (GOLD) --- */
     .first-letter {
         float: left; font-size: 5rem; line-height: 0.7;
         padding-top: 10px; padding-right: 15px;
         font-family: sans-serif; font-weight: bold;
-        color: var(--accent); /* Solid Gold Capital Letters */
+        color: var(--accent); /* Pure gold drop caps */
     }
 
-    /* --- DROPDOWN INDEX OVERLAY --- */
+    /* --- 7. INDEX OVERLAY (UNIVERSAL) --- */
     #indexOverlay {
         display: none; position: fixed; top: 0; left: 0;
         width: 100%; height: 100%;
@@ -111,6 +112,7 @@ section, .content-wrap, .chapter {
     .overlay-content { max-width: 600px; margin: 0 auto; text-align: left; }
     .close-btn { position: absolute; top: 20px; right: 20px; font-size: 2rem; color: var(--accent); cursor: pointer; }
 
+    /* ACCORDION MENU UI ELEMENTS */
     .unit-group { border-bottom: 1px solid #222; margin-bottom: 5px; }
     .unit-header {
         width: 100%; background: none; border: none; color: var(--accent);
@@ -121,19 +123,19 @@ section, .content-wrap, .chapter {
     .unit-chapters a { display: block; color: #888; padding: 10px 0; text-decoration: none; font-size: 0.9rem; }
     .unit-chapters a:hover { color: var(--accent); padding-left: 5px; transition: 0.2s; }
 
-    /* --- PILL ROUNDED HUB BUTTON (GOLD) --- */
+    /* --- 8. FIXED ROUNDED PILL HUB BUTTON (UNIVERSAL GOLD) --- */
     .fixed-hub-btn {
         position: fixed; bottom: 20px; right: 20px;
         z-index: 99998; background: #000; color: #fff;
         border: 2px solid var(--accent); padding: 12px 25px; 
         text-decoration: none; border-radius: 50px;
         font-weight: bold; font-family: sans-serif; font-size: 0.7rem;
-        box-shadow: 0 0 15px rgba(255, 215, 0, 0.2); transition: 0.4s;
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.3); transition: 0.4s;
     }
     .fixed-hub-btn:hover {
         transform: scale(1.1) translateY(-5px);
         background: var(--accent); color: #000;
-        box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+        box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
     }
 </style>
 </head>
